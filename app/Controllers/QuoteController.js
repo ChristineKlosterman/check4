@@ -12,9 +12,7 @@ function _drawQuotes() {
     document.getElementById('quotes').innerHTML = ProxyState.quote.quoteTemplate
 }
 
-function _drawAuthor() {
-    document.getElementById('author').innerHTML = ProxyState.author.authorTemplate
-}
+
 
 
 
@@ -23,7 +21,7 @@ export class QuoteController {
     constructor() {
         this.getQuote()
         ProxyState.on('quote', _drawQuotes)
-        ProxyState.on('author', _drawAuthor)
+        // ProxyState.on('author', _drawAuthor)
     }
 
     async getQuote() {

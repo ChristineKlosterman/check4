@@ -2,3 +2,15 @@
 .clock-style {
     margin-top: 40vh;
 }
+
+body {
+    background-size: cover;
+}
+
+.author {
+    opacity: 0;
+}
+
+:hover.author {
+    opacity: 100;
+}
