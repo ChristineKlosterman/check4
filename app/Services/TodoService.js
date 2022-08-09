@@ -9,9 +9,9 @@ class TodoService {
         ProxyState.todos = res.data.map(t => new Todo(t))
     }
 
-    async createTodo(TodoFormData) {
-        console.log('creating party', TodoFormData);
-        let res = await sandboxApi.post('/charlie/todos', TodoFormData)
+    async createTodo(todoFormData) {
+        console.log('creating party', todoFormData);
+        let res = await sandboxApi.post('/charlie/todos', todoFormData)
         let todo = new Todo(res.data)
         ProxyState.todos = [...ProxyState.todos, todo]
     }
@@ -33,6 +33,7 @@ class TodoService {
         let updatedTodo = new Todo(res.data)
         ProxyState.todos.splice(todoIndex, 1, updatedTodo)
         ProxyState.todos = ProxyState.todos
+
 
 
     }

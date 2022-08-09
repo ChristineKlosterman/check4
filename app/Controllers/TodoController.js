@@ -8,7 +8,20 @@ function _drawTodo() {
     todo.forEach(t => template += t.todoTemplate)
 
     document.getElementById('todo').innerHTML = template
+    document.getElementById('todo-list').innerHTML = `
+    <div class="text-dark">
+      <div class="d-flex justify-content-between">
+        <div>
+         <b>Todos:</b> ${ProxyState.todos.length}
+        </div>
+         <div>
+            <b>Done:</b> ${ProxyState.todos.filter(t => t.completed).length}
+        </div>
+      </div>
+    </div>
+    `
 }
+
 
 export class TodoController {
     constructor() {
@@ -30,10 +43,14 @@ export class TodoController {
         try {
             window.event.preventDefault()
             let form = window.event.target
+
+
             let newTodo = {
-                description: form.name.value
+                description: form.description.value
             }
             await todoService.createTodo(newTodo)
+
+            form.reset()
 
         } catch (error) {
             console.log('[create todo]', error);
@@ -45,6 +62,7 @@ export class TodoController {
     async ToggleTodo(todoId) {
         try {
             await todoService.ToggleTodo(todoId)
+
         } catch (error) {
             console.log('[toggle todo]', error);
             Pop.error(error)

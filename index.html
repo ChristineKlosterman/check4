@@ -28,8 +28,9 @@
   <div id="quotes" class="quote d-flex justify-content-center"></div>
   <div id="author"></div>
 
-  <form class="col-4" onsubmit="">
-    <input type="text" id="name" name="name">
+  <div id="todo-list" class=" bg-white text-dark"></div>
+  <form class="col-4 " onsubmit="app.todosController.createTodo()">
+    <input type="text" id="description" name="description">
   </form>
   <div id="todo" class="row bg-dark">
 

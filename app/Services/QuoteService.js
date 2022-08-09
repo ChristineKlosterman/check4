@@ -10,13 +10,13 @@ class QuotesService {
         ProxyState.quote = new Quotes(res.data)
 
     }
-    async getAuthor() {
+    // async getAuthor() {
 
-        let res = await sandboxApi.get('/quotes')
+    //     let res = await sandboxApi.get('/quotes')
 
-        ProxyState.author = new Author(res.data)
+    //    ProxyState.author = new Author(res.data)
 
-    }
+    // }
 
 }
 
